@@ -1,5 +1,5 @@
 import React from "react";
-// import Products from "../components/Products";
+import Products from "../components/Products";
 
 const Home = () => {
   return (
@@ -33,9 +33,9 @@ const Home = () => {
         </div>
       </div>
 
-      {/* <div className="pb-15">
+      <div className="pb-15">
         <Products />
-      </div> */}
+      </div>
     </>
   );
 };
