@@ -2,23 +2,24 @@
 import { BrowserRouter, Route, Routes,  } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
-// import ProductsPage from './pages/ProductsPage';
-// import Cart from './pages/Cart';
-// import SingleProduct from './pages/SingleProduct';
+import Cart from './pages/Cart';
+import SingleProduct from './pages/SingleProduct';
+import { Provider } from 'react-redux';
+import store from './store/store';
+
 function App() {
   return (
     <div className="App">
+      <Provider store={store}>
       <BrowserRouter>
-        {/* <CartContext.Provider value={{cart, setCart}}> */}
           <Navigation/>
           <Routes>
             <Route path='/' exact element={<Home/>}/>
-            {/* <Route path='/products' exact element={<ProductsPage/>}/>
             <Route path='/products/:id' element={<SingleProduct/>}/>
-            <Route path='/cart' element={<Cart/>}/> */}
+            <Route path='/cart' element={<Cart/>}/>
           </Routes>
-        {/* </CartContext.Provider> */}
       </BrowserRouter>
+      </Provider>
     </div>
   );
 }

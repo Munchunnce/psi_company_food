@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import { logout } from "../store/authSlice"; // logout action
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 //   const dispatch = useDispatch();
 
-//   const items = useSelector((state) => state.cart.totalItems);
+  const items = useSelector((state) => state.cart.totalItems);
 //   const { accessToken, user } = useSelector((state) => state.auth);
   // Logout
   const handleLogout = () => {
@@ -85,7 +85,7 @@ const Navigation = () => {
               className="bg-[#FE5F1E] hover:bg-[#e64e10] inline-flex items-center justify-center"
               style={cartStyle}
             >
-              <span className="text-white">0</span>
+              <span className="text-white">{items}</span>
               <img className="ml-2" src="/images/cart.png" alt="cart-icon" />
             </div>
           </Link>
