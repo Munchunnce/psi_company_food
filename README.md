@@ -108,8 +108,8 @@ Example placeholders:
 ![Product Page](/frontend/public/images/home-Page.png)
 ![Cart Page](/frontend/public/images/cart-1.png)
 ![Cart Page](/frontend/public/images/cart-2.png)
-![Login Page](/frontend/public/images/login.png)
-![Register Page](./public/images/register.png)
+![Login Page](./frontend/public/images/login.png)
+![Register Page](./frontend/public/images/register.png)
 ```
 
 ---
