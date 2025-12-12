@@ -123,6 +123,9 @@ Example placeholders:
 ### Register Page
 ![Register Page](./frontend/public/screenshort/register.png)
 
+### Register Page
+![Footer](./frontend/public/screenshort/footer.png)
+
 
 ---
 
