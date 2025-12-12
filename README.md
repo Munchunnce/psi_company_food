@@ -102,15 +102,27 @@ Then add your images.
 
 Example placeholders:
 
-```
-![Home Page](./frontend/public/screenshort/screenshort/h-1.png)
+## Application Screenshots
+
+### Home Page
+![Home Page](./frontend/public/screenshort/h-1.png)
+
+### Product Page
 ![Product Page](./frontend/public/screenshort/product-pagination.png)
-![Product Page](/frontend/public/images/home-Page.png)
-![Cart Page](/frontend/public/images/cart-1.png)
-![Cart Page](/frontend/public/images/cart-2.png)
-![Login Page](./frontend/public/images/login.png)
-![Register Page](./frontend/public/images/register.png)
-```
+
+### Home Page (Alternate)
+![Home Page](./frontend/public/screenshort/home-Page.png)
+
+### Cart Page
+![Cart Page](./frontend/public/screenshort/cart-1.png)
+![Cart Page](./frontend/public/screenshort/cart-2.png)
+
+### Login Page
+![Login Page](./frontend/public/screenshort/login.png)
+
+### Register Page
+![Register Page](./frontend/public/screenshort/register.png)
+
 
 ---
 
