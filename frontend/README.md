@@ -1,70 +1,284 @@
-# Getting Started with Create React App
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **🍕 MERN Commerce – Full-Stack E-Commerce Application**
 
-## Available Scripts
+A high-performance, full-stack e-commerce application built with **React.js**, **Redux Toolkit**, **Tailwind CSS**, **Node.js**, **Express.js**, and **MongoDB**.
+It includes **JWT Authentication**, **Access & Refresh Tokens**, **HTTP-Only cookies**, and **secure protected routes** for Products and Cart.
 
-In the project directory, you can run:
+Deployed live on **Vercel (Frontend)** and **Render/Backend service**.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# **🌐 Live Demo**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **Frontend (Vercel):**
 
-### `npm test`
+[https://your-vercel-app-url.vercel.app](#)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Backend (API Server):**
 
-### `npm run build`
+[https://your-backend.onrender.com](#)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### **Dummy Product API Used:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+https://fakestoreapi.com/products
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+(You can replace with your own MongoDB API, but this works as a hosted dummy API.)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# **📦 GitHub Repository**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Frontend GitHub Repo:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+https://github.com/your-username/your-frontend-repo
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Backend GitHub Repo:**
 
-## Learn More
+```
+https://github.com/your-username/your-backend-repo
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# **🚀 Features**
 
-### Code Splitting
+### **Frontend**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Home page
+* Product listing page
+* Cart page
+* Register page
+* Login page
+* Fully responsive UI with Tailwind
+* State management using Redux Toolkit
+* Protected routes for Cart & Products
+* Access Token (memory) + Refresh Token (HTTP-only cookie) based session
 
-### Analyzing the Bundle Size
+### **Backend**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Secure user registration & login
+* JWT Access Token (short-lived)
+* Refresh Token with HTTP-Only cookie
+* Login persistence
+* Protected APIs
+* Mongoose schema structure
+* Clean architecture with controllers, routes & middleware
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# **🛡️ Security Architecture**
 
-### Advanced Configuration
+### **Authentication Flow**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. User logs in
+2. Backend issues:
 
-### Deployment
+   * Access Token (short expiration)
+   * Refresh Token stored in HTTP-Only cookie
+3. For protected routes:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   * Access Token is validated
+4. If expired → Auto-refresh using Refresh Token
+5. No need to re-login
 
-### `npm run build` fails to minify
+This is the **same model used by large-scale production apps**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+# **📸 UI Screenshots**
+
+Create a folder named:
+
+```
+/screenshots
+```
+
+Then add your images.
+
+Example placeholders:
+
+```
+![Home Page](./screenshots/home.png)
+![Product Page](./screenshots/products.png)
+![Cart Page](./screenshots/cart.png)
+![Login Page](./screenshots/login.png)
+![Register Page](./screenshots/register.png)
+```
+
+---
+
+# **🧰 Tech Stack**
+
+### **Frontend**
+
+* React.js
+* React Router
+* Redux Toolkit
+* Tailwind CSS
+* Axios
+
+### **Backend**
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JsonWebToken
+* Bcrypt
+* Cookie-parser
+
+---
+
+# **📁 Project Structure**
+
+### **Frontend**
+
+```
+frontend/
+  src/
+    components/
+    pages/
+    store/
+    utils/
+    App.js
+    index.js
+```
+
+### **Backend**
+
+```
+backend/
+  controllers/
+  routes/
+  middleware/
+  models/
+  config/
+  server.js
+```
+
+---
+
+# **▶️ How to Run Project Locally**
+
+## **1. Clone Repos**
+
+```bash
+git clone https://github.com/your-username/your-frontend-repo
+git clone https://github.com/your-username/your-backend-repo
+```
+
+---
+
+# **Frontend Setup**
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+---
+
+# **Backend Setup**
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+---
+
+# **🔧 Backend Environment Variables**
+
+Create `.env`:
+
+```
+PORT=5000
+MONGO_URI=your_mongo_connection_string
+ACCESS_TOKEN_SECRET=your_access_secret
+REFRESH_TOKEN_SECRET=your_refresh_secret
+CLIENT_URL=https://your-frontend.vercel.app
+```
+
+---
+
+# **🚀 Deployment Guide**
+
+## **Frontend – Deploy on Vercel**
+
+1. Go to [https://vercel.com](https://vercel.com)
+2. Import your GitHub repo
+3. Vercel auto-detects React
+4. Deploy
+5. Add environment variable for API URL:
+
+```
+REACT_APP_API_URL=https://your-backend.onrender.com
+```
+
+---
+
+## **Backend – Deploy on Render / Railway / Vercel**
+
+If on Render:
+
+1. Create new Web Service
+2. Connect GitHub backend repo
+3. Add env vars
+4. Deploy
+
+If using Vercel serverless:
+
+* Use Vercel functions
+* Add API folder
+* Add environment variables
+* Deploy
+
+---
+
+# **📌 API Endpoints**
+
+### **Auth**
+
+```
+POST /api/auth/register
+POST /api/auth/login
+GET  /api/auth/refresh
+GET  /api/auth/logout
+```
+
+### **Products**
+
+```
+GET /api/products
+GET /api/products/:id
+```
+
+### **Cart (Protected)**
+
+```
+POST   /api/cart/add
+PATCH  /api/cart/update
+DELETE /api/cart/remove
+GET    /api/cart/my-cart
+```
+
+---
+
+# **📜 License**
+
+This project is MIT Licensed.
+
+---
+
+# **⭐ Show Support**
+
+If this project helps you, star the repo and share it with developers.
+
+---
