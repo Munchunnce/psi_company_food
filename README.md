@@ -103,11 +103,13 @@ Then add your images.
 Example placeholders:
 
 ```
-![Home Page](./screenshots/home.png)
-![Product Page](./screenshots/products.png)
-![Cart Page](./screenshots/cart.png)
-![Login Page](./screenshots/login.png)
-![Register Page](./screenshots/register.png)
+![Home Page](/frontend/public/images/h-1.png.png)
+![Product Page](/frontend/public/images/product-pagination.png)
+![Product Page](/frontend/public/images/home-Page.png.png)
+![Cart Page](/frontend/public/images/cart-1.png)
+![Cart Page](/frontend/public/images/cart-2.png)
+![Login Page](/frontend/public/images/login.png)
+![Register Page](/frontend/public/images/register.png)
 ```
 
 ---
