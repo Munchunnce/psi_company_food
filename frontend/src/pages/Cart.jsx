@@ -236,7 +236,7 @@ const Cart = () => {
 
             <button
               onClick={handleOrderNow}
-              className="px-6 py-2 rounded-full bg-[#FE5F1E] hover:bg-[#e64e10] text-white font-bold"
+              className="px-6 py-2 rounded-full bg-[#FE5F1E] hover:bg-[#e64e10] text-white font-bold cursor-pointer"
             >
               Order Now
             </button>
