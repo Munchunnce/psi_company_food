@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+const BASE_URL = "https://psi-company-food-server.vercel.app";
 
 // ---------------- REGISTER ----------------
 export const registerUser = createAsyncThunk(
   "auth/registerUser",
   async (formData, { rejectWithValue }) => {
     try {
-      const res = await fetch("https://psi-company-food-server.vercel.app/api/register", {
+      const res = await fetch(`${BASE_URL}/api/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
