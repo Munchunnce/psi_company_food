@@ -104,7 +104,7 @@ Example placeholders:
 
 ```
 ![Home Page](./screenshort/h-1.png)
-![Product Page](/frontend/public/images/product-pagination.png)
+![Product Page](/frontend/public/screenshort/product-pagination.png)
 ![Product Page](/frontend/public/images/home-Page.png)
 ![Cart Page](/frontend/public/images/cart-1.png)
 ![Cart Page](/frontend/public/images/cart-2.png)
