@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from "cors";
 import { APP_PORT, MONGO_CONNECTION_URL } from './config/index.js';
 import errorhandler from './middlewares/errorHandler.js';
 const app = express();
@@ -6,6 +7,13 @@ import routes from './routes/index.js';
 import mongoose from 'mongoose';
 import path from 'path';
 import { fileURLToPath } from "url";   // ⬅️ Add this
+
+
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 // Fix for __dirname in ES Modules
 const __filename = fileURLToPath(import.meta.url);
