@@ -29,7 +29,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (formData, { rejectWithValue }) => {
     try {
-      const res = await fetch("/api/login", {
+      const res = await fetch(`${BASE_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -52,7 +52,7 @@ export const refreshToken = createAsyncThunk(
   "auth/refreshToken",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch("/api/refresh", {
+      const res = await fetch(`${BASE_URL}/api/refresh`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -78,7 +78,7 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       const state = getState();
       const token = state.auth.accessToken;
-      const res = await fetch("/api/me", {
+      const res = await fetch(`${BASE_URL}/api/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
