@@ -229,7 +229,7 @@ const Cart = () => {
                 dispatch(clearCart());
                 setProducts([]);
               }}
-              className="border border-[#FE5F1E] text-[#FE5F1E] hover:bg-[#FE5F1E] hover:text-white px-6 py-2 rounded-full font-bold"
+              className="border border-[#FE5F1E] text-[#FE5F1E] hover:bg-[#FE5F1E] hover:text-white px-6 py-2 rounded-full font-bold cursor-pointer"
             >
               Clear Cart
             </button>
