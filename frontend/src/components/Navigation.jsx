@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-// import { logout } from "../store/authSlice"; // logout action
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../store/authSlice"; // logout action
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const items = useSelector((state) => state.cart.totalItems);
-//   const { accessToken, user } = useSelector((state) => state.auth);
+  const { accessToken, user } = useSelector((state) => state.auth);
   // Logout
   const handleLogout = () => {
-    // dispatch(logout());
+    dispatch(logout());
   };
 
   const cartStyle = {
@@ -51,6 +51,7 @@ const Navigation = () => {
             Products
           </Link>
         </li>
+        {!accessToken ? (
         <>
         <li className="py-2 md:py-0 text-center">
           <Link to="/register" className="hover:text-[#e64e10]">
@@ -63,11 +64,11 @@ const Navigation = () => {
           </Link>
         </li>
         </>
- 
+        ) : (
           <>
           {/* user name */}
-          {/* <li className="py-2 md:py-0 text-center font-bold text-[#FE5F1E]">
-              Welcome, Vimal
+          <li className="py-2 md:py-0 text-center font-bold text-[#FE5F1E]">
+              Welcome, {user?.name}!
             </li>
           <li className="py-2 md:py-0 text-center">
             <Link
@@ -76,9 +77,9 @@ const Navigation = () => {
             >
               Logout
             </Link>
-          </li> */}
+          </li>
           </>
-
+        )}
         <li className="py-2 md:py-0 text-center">
           <Link to="/cart">
             <div

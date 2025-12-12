@@ -30,4 +30,8 @@ app.use('/api', routes);
 app.use('/uploads', express.static('uploads'));
 app.use(errorhandler);
 
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is running successfully on Vercel!");
+});
+
 app.listen(APP_PORT, () => console.log(`Lisenting on port ${APP_PORT}.`));

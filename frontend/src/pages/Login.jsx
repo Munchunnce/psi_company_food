@@ -36,7 +36,7 @@ const Login = () => {
         if (userRole === "admin") {
           navigate("/admin/orders");
         } else {
-          navigate("/customer/orders");
+          navigate("/");
         }
       } else {
         console.log("Failed to fetch user after login");

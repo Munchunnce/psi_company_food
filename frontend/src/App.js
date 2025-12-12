@@ -9,6 +9,8 @@ import store from './store/store';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Products from './components/Products';
+import ProtectedRoute from './components/ProductedRoute';
+import Footer from './pages/Footer';
 
 function App() {
   return (
@@ -20,10 +22,15 @@ function App() {
             <Route path='/register' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/' exact element={<Home/>}/>
-            <Route path='/products' exact element={<Products/>}/>
+            <Route path='/products' exact element={<ProtectedRoute>
+              <Products/>
+            </ProtectedRoute>}/>
             <Route path='/products/:id' element={<SingleProduct/>}/>
-            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/cart' element={<ProtectedRoute>
+              <Cart/>
+            </ProtectedRoute>}/>
           </Routes>
+      <Footer/>
       </BrowserRouter>
       </Provider>
     </div>
