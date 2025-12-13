@@ -176,7 +176,7 @@ const Products = () => {
           <button
             onClick={goToFirst}
             disabled={page === 1}
-            className={`px-3 py-1 rounded-md ${page === 1 ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
+            className={`px-3 py-1 rounded-md cursor-pointer ${page === 1 ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
           >
             First
           </button>
@@ -184,7 +184,7 @@ const Products = () => {
           <button
             onClick={goPrev}
             disabled={page === 1}
-            className={`px-3 py-1 rounded-md ${page === 1 ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
+            className={`px-3 py-1 rounded-md cursor-pointer ${page === 1 ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
           >
             Prev
           </button>
@@ -196,7 +196,7 @@ const Products = () => {
               <button
                 key={p}
                 onClick={() => goPage(p)}
-                className={`px-3 py-1 rounded-md ${p === page ? "bg-yellow-500 text-white" : "bg-white border"}`}
+                className={`px-3 py-1 rounded-md cursor-pointer ${p === page ? "bg-yellow-500 text-white" : "bg-white border"}`}
               >
                 {p}
               </button>
@@ -206,7 +206,7 @@ const Products = () => {
           <button
             onClick={goNext}
             disabled={page === totalPages}
-            className={`px-3 py-1 rounded-md ${page === totalPages ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
+            className={`px-3 py-1 rounded-md cursor-pointer ${page === totalPages ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
           >
             Next
           </button>
@@ -214,7 +214,7 @@ const Products = () => {
           <button
             onClick={goToLast}
             disabled={page === totalPages}
-            className={`px-3 py-1 rounded-md ${page === totalPages ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
+            className={`px-3 py-1 rounded-md cursor-pointer ${page === totalPages ? "bg-gray-200 text-gray-500" : "bg-white border"}`}
           >
             Last
           </button>
