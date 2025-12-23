@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchCurrentUser, loginUser } from "../store/authSlice";
+import Toast from "../components/Toast/Toast";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,17 @@ const Login = () => {
     password: "",
   });
 
+  const [toast, setToast] = useState({
+    show: false,
+    message: "",
+    type: "success",
+  });
+
+  // Email validation helper
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -20,39 +32,76 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (!formData.email || !formData.password) return;
-    // 1️⃣ Dispatch loginUser
+    // Empty validation
+    if (!formData.email || !formData.password) {
+      setToast({
+        show: true,
+        message: "Email and password are required",
+        type: "error",
+      });
+      return;
+    }
+
+    // Email format validation
+    if (!isValidEmail(formData.email)) {
+      setToast({
+        show: true,
+        message: "Please enter a valid email address",
+        type: "error",
+      });
+      return;
+    }
+
+    // Login API
     const res = await dispatch(loginUser(formData));
 
     if (res.meta.requestStatus === "fulfilled") {
-      // const userRole = res.payload?.role;
-      // 2️⃣ Fetch current user after successful login
+      // Fetch current user
       const userRes = await dispatch(fetchCurrentUser());
 
       if (userRes.meta.requestStatus === "fulfilled") {
+        setToast({
+          show: true,
+          message: "Login successful",
+          type: "success",
+        });
+
         const userRole = userRes.payload.role;
 
-        if (userRole === "admin") {
-          navigate("/admin/orders");
-        } else {
-          navigate("/");
-        }
+        setTimeout(() => {
+          if (userRole === "admin") {
+            navigate("/admin/orders");
+          } else {
+            navigate("/");
+          }
+        }, 1000);
       } else {
-        console.log("Failed to fetch user after login");
+        setToast({
+          show: true,
+          message: "Login failed while fetching user",
+          type: "error",
+        });
       }
+    } else {
+      setToast({
+        show: true,
+        message: res.payload || "Invalid email or password",
+        type: "error",
+      });
     }
-
-    // dispatch(loginUser(formData)).then((res) => {
-    //   if (res.meta.requestStatus === "fulfilled") {
-    //     dispatch(fetchCurrentUser()); // user name add
-    //     navigate("/");  // Home page
-    //   }
-    // });
   };
 
   return (
     <div>
+      {/* login show notify  */}
+      {toast.show && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast({ ...toast, show: false })}
+        />
+      )}
+
       <section className="login flex justify-center pt-15 container rounded bg-[#F8F8F8] mx-auto mt-4">
         <div className="w-full max-w-xs">
           <form

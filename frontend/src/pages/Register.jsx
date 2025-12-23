@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser } from "../store/authSlice";
+import Toast from "../components/Toast/Toast";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,15 @@ const Register = () => {
     email: "",
     password: "",
   });
+const [toast, setToast] = useState({
+  show: false,
+  message: "",
+  type: "success",
+});
+// Email validation (basic) add karein
+const isValidEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
 
   // const [error, setError] = useState("");
 
@@ -20,24 +30,60 @@ const Register = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    // validation
-    if (!formData.name || !formData.email || !formData.password) {
-      return;
-    }
-
-    dispatch(registerUser(formData)).then((res) => {
-      if (res.meta.requestStatus === "fulfilled") {
-        navigate("/"); // Register ke baad home pe bhej do
-      }
+  // Empty validation
+  if (!formData.name || !formData.email || !formData.password) {
+    setToast({
+      show: true,
+      message: "All fields are required",
+      type: "error",
     });
+    return;
+  }
 
-    // yaha API call karni ho to fetch/axios ka use kar sakte ho
-  };
+  // Email validation
+  if (!isValidEmail(formData.email)) {
+    setToast({
+      show: true,
+      message: "Please enter a valid email address",
+      type: "error",
+    });
+    return;
+  }
+
+  dispatch(registerUser(formData)).then((res) => {
+    if (res.meta.requestStatus === "fulfilled") {
+      setToast({
+        show: true,
+        message: "Registration successful",
+        type: "success",
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
+    } else {
+      setToast({
+        show: true,
+        message: res.payload || "Registration failed",
+        type: "error",
+      });
+    }
+  });
+};
+
 
   return (
     <div>
+      {/* toast notify */}
+      {toast.show && (
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        onClose={() => setToast({ ...toast, show: false })}
+      />
+    )}
       <section className="login flex justify-center pt-15 container rounded bg-[#F8F8F8] mx-auto mt-4">
         <div className="w-full max-w-xs">
           <form
