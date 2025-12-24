@@ -87,7 +87,7 @@ const Product = ({ product }) => {
               disabled={isAdding}
               onClick={(e) => addCart(e, product)}
               className={`
-                flex items-center py-1 px-5 rounded-full font-bold transition-colors duration-200
+                flex items-center py-1 px-5 rounded-full font-bold transition-colors duration-200 cursor-pointer
                 ${
                   isAdding
                     ? "bg-green-500 text-white"
